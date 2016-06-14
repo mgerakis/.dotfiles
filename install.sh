@@ -1,10 +1,12 @@
 #!/bin/bash
 
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 # vim
-ln -s -i ${pwd}/vimrc ~/.vimrc
+ln -si ${BASEDIR}/vimrc ~/.vimrc
 
 # tmux
-ln -s -i ${pwd}/tmux.conf ~/.tmux.conf
+ln -si ${BASEDIR}/tmux.conf ~/.tmux.conf
 
 # zsh
-# ln -s -i ${pwd}/zshrc ~/.zshrc
+ln -si ${BASEDIR}/zshrc ~/.zshrc
