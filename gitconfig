@@ -1,0 +1,9 @@
+[user]
+	name = Michael Gerakis
+	email = mgerakis@bu.edu
+[push]
+	default = matching
+[alias]
+	co = checkout
+[core]
+	editor = vim
