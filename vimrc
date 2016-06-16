@@ -11,6 +11,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Personal plugins
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdtree-git-plugin'
+Plugin 'kristijanhusak/vim-hybrid-material'
 " End of personal plugins
 
 call vundle#end()     " required
@@ -30,6 +31,9 @@ syntax on
 " Wrap lines
 set wrap
 
+" Set cursor line highlight
+set cursorline
+
 " Line and column numbers
 set ruler
 set nu
@@ -37,3 +41,8 @@ set nu
 " Status line
 set laststatus=2
 set statusline=%f
+
+" Theme
+set background=dark
+colorscheme hybrid_material
+
