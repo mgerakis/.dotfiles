@@ -1,6 +1,6 @@
 # My own personal dotfiles
 
-Version: 0.3.1
+Version: 0.3.2
 
 Contains:
 * vim config
