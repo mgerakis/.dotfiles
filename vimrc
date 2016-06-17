@@ -15,6 +15,7 @@ Plugin 'kristijanhusak/vim-hybrid-material'
 Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'airblade/vim-gitgutter'
 " End of personal plugins
 
 call vundle#end()     " required
@@ -29,6 +30,9 @@ filetype plugin indent on " required
 "                       auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
+
+" Set colors for linux terminal
+set t_Co=256
 
 " Keep syntax on
 syntax on
@@ -54,6 +58,9 @@ colorscheme hybrid_material
 let g:airline_powerline_fonts = 1
 let g:airline_theme='bubblegum'
 
+" vim-gitgutter by default
+let g:gitgutter_enabled = 1
+
 """""""""""""""""""""""""""""""""""""""
 """"""""""" Custom stuff """"""""""""""
 """""""""""""""""""""""""""""""""""""""
@@ -67,4 +74,6 @@ match OverLength /\%81v.\+/
 
 " Ctrl-D: Move to now line
 map <C-D> i<BS><CR><ESC>
+nnoremap <C-X> :w<CR>
+inoremap <C-X> <C-O>:w<CR>
 
