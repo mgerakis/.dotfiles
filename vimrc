@@ -12,6 +12,9 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdtree-git-plugin'
 Plugin 'kristijanhusak/vim-hybrid-material'
+Plugin 'vim-airline/vim-airline'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-airline/vim-airline-themes'
 " End of personal plugins
 
 call vundle#end()     " required
@@ -40,9 +43,15 @@ set nu
 
 " Status line
 set laststatus=2
-set statusline=%f
+" set statusline=%f
 
 " Theme
 set background=dark
 colorscheme hybrid_material
 
+" Airline stuff
+let g:airline_powerline_fonts = 1
+let g:airline_theme='bubblegum'
+
+" Remove -- INSERT -- from below airline
+set noshowmode
