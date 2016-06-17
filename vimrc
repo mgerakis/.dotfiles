@@ -36,4 +36,11 @@ set nu
 
 " Status line
 set laststatus=2
-set statusline=%f
+set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
+
+" Highlight lines over 80 chars
+highlight OverLength ctermbg=blue ctermfg=black guibg=#592929
+match OverLength /\%81v.\+/
+
+" Ctrl-D: Move to now line
+map <C-D> i<BS><CR><ESC>
