@@ -1,6 +1,4 @@
-Directions for installing fonts
-Install script with fonts
-Install script clean?
-Brew tree
-80 line thing
+Better understanding of bash
+vim git line markings
+git aliases
 
