@@ -32,8 +32,14 @@ then
 		font_dir="$HOME/Library/Fonts"
 	else
 		# Linux
-		font_dir="$HOME/.local/share/fonts"
-		mkdir -p $font_dir
+		# font_dir="$HOME/.local/share/fonts"
+		# mkdir -p $font_dir
+		# wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf 
+		# wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
+		# mkdir -p ~/.fonts/ && mv PowerlineSymbols.otf ~/.fonts/
+		# fc-cache -vf ~/.fonts
+		# mkdir ~/.fonts.conf.d/
+		# mv 10-powerline-symbols.conf ~/.fonts.conf.d/
 	fi
 
 	# Copy fonts to user directory

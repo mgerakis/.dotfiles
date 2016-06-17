@@ -87,6 +87,7 @@ alias ta="tmux a -t "
 alias tn="tmux new -s "
 alias tl="tmux ls"
 alias tk="tmux kill-session -t "
+alias v="vim "
 
 export NVM_DIR="${HOME}/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
