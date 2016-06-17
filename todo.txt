@@ -1,0 +1,6 @@
+Directions for installing fonts
+Install script with fonts
+Install script clean?
+Brew tree
+80 line thing
+
