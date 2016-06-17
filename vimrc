@@ -31,6 +31,9 @@ filetype plugin indent on " required
 "
 " see :h vundle for more details or wiki for FAQ
 
+" Set colors for linux terminal
+set t_Co=256
+
 " Keep syntax on
 syntax on
 
