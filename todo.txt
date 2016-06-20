@@ -1,4 +1,0 @@
-Better understanding of bash
-vim git line markings
-git aliases
-

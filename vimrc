@@ -92,9 +92,8 @@ inoremap <C-X> <C-O>:w<CR>
 " <leader>n: Toggle NerdTree
 nnoremap <leader>n :NERDTreeToggle<CR>
 
-" Ctrl-Shift-R: source vimrc
-nnoremap <C-S-R> :source $MYVIMRC<CR>
-inoremap <C-S-R> <C-O>:source $MYVIMRC<CR>
+" <leader>r: source vimrc
+nnoremap <leader>r :source $MYVIMRC<CR>
 
 " <leader>p: CtrlP
 nnoremap <leader>p :CtrlP<CR>
