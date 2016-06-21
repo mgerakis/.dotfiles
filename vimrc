@@ -32,6 +32,13 @@ filetype plugin indent on " required
 "
 " see :h vundle for more details or wiki for FAQ
 
+" Swap file stuff
+set swapfile
+set dir=/tmp
+
+" Backspace works normally
+set backspace=indent,eol,start
+
 " Set colors for linux terminal
 set t_Co=256
 
@@ -82,6 +89,10 @@ set noshowmode
 highlight OverLength ctermbg=blue ctermfg=black guibg=#592929
 match OverLength /\%81v.\+/
 
+" Maybe I should highlight or something with tabs?
+" highlight Tab ctermbg=white ctermfg=black
+" match Tab /\t/
+
 " Ctrl-D: Move to now line
 map <C-D> i<BS><CR><ESC>
 
@@ -97,4 +108,16 @@ nnoremap <leader>r :source $MYVIMRC<CR>
 
 " <leader>p: CtrlP
 nnoremap <leader>p :CtrlP<CR>
+
+" Make switching between panes interfere with tmux less
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j <C-W><Down>
+nnoremap <leader>k <C-W><Up>
+nnoremap <leader>l <C-W><Right>
+
+" Tabs are 2, no spaces. Makefile tabs automatically do 8
+autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
+
+" Fix tabs to do 2 spaces
+set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 

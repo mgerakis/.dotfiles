@@ -95,6 +95,7 @@ alias gf="git fetch"
 alias gm="git merge"
 alias gl="git log"
 alias gc="git commit"
+alias gco="git co"
 
 export NVM_DIR="${HOME}/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
