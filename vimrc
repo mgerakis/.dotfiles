@@ -110,10 +110,10 @@ nnoremap <leader>r :source $MYVIMRC<CR>
 nnoremap <leader>p :CtrlP<CR>
 
 " Make switching between panes interfere with tmux less
-nnoremap <leader>h :wincmd h<CR>
-nnoremap <leader>j <C-W><Down>
-nnoremap <leader>k <C-W><Up>
-nnoremap <leader>l <C-W><Right>
+nnoremap <C-h> <C-W><Left>
+nnoremap <C-j> <C-W><Down>
+nnoremap <C-k> <C-W><Up>
+nnoremap <C-l> <C-W><Right>
 
 " Tabs are 2, no spaces. Makefile tabs automatically do 8
 autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab

@@ -1,0 +1,2 @@
+Vim copy and past in other tmux windows
+
