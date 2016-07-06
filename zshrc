@@ -103,3 +103,6 @@ export NVM_DIR="${HOME}/.nvm"
 export PATH=$HOME/bin:$PATH
 
 export PATH=$HOME/homebrew/bin:$PATH
+
+tmux attach -t base || tmux new -s base
+
