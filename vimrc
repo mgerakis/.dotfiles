@@ -17,6 +17,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'skammer/vim-css-color'
 " End of personal plugins
 
 call vundle#end()     " required
