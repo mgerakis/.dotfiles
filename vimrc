@@ -17,6 +17,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'skammer/vim-css-color'
 " End of personal plugins
 
 call vundle#end()     " required
@@ -76,6 +77,8 @@ let g:gitgutter_enabled = 1
 " close vim if only tab up is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") &&
 	\ b:NERDTree.isTabTree()) | q | endif
+
+let NERDTreeShowHidden = 1
 
 """""""""""""""""""""""""""""""""""""""
 """"""""""" Custom stuff """"""""""""""
