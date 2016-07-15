@@ -131,6 +131,7 @@ let g:zoomed = 0
 function! Zoom()
   if g:zoomed == 0
     execute "normal \<C-w>\|"
+    execute "normal \<C-w>\_"
     let g:zoomed=1
   else
     execute "normal \<C-w>\="
