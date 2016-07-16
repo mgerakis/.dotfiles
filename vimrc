@@ -18,6 +18,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'skammer/vim-css-color'
+Plugin 'Townk/vim-autoclose'
+Plugin 'alvan/vim-closetag'
 " End of personal plugins
 
 call vundle#end()     " required
