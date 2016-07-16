@@ -60,6 +60,7 @@ set cursorline
 " Line and column numbers
 set ruler
 set nu
+set relativenumber
 
 " Status line
 set laststatus=2
@@ -126,3 +127,18 @@ autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
 " Fix tabs to do 2 spaces
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 
+" For zooming into window
+let g:zoomed = 0
+
+function! Zoom()
+  if g:zoomed == 0
+    execute "normal \<C-w>\|"
+    execute "normal \<C-w>\_"
+    let g:zoomed=1
+  else
+    execute "normal \<C-w>\="
+    let g:zoomed=0
+  endif
+endfunction
+
+nnoremap <C-z> :call Zoom()<cr>
