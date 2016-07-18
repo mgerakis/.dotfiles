@@ -11,6 +11,8 @@ Plugin 'VundleVim/Vundle.vim'
 " Personal plugins
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdtree-git-plugin'
+Plugin 'scrooloose/syntastic'
+Plugin 'othree/html5.vim'
 Plugin 'kristijanhusak/vim-hybrid-material'
 Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-fugitive'
@@ -81,6 +83,19 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") &&
 	\ b:NERDTree.isTabTree()) | q | endif
 
 let NERDTreeShowHidden = 1
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_html_checkers=['jshint']
+let g:syntastic_css_checkers=['csslint']
 
 """""""""""""""""""""""""""""""""""""""
 """"""""""" Custom stuff """"""""""""""
