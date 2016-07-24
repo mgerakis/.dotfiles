@@ -96,6 +96,7 @@ let g:syntastic_check_on_wq = 0
 
 let g:syntastic_html_checkers=['jshint']
 let g:syntastic_css_checkers=['csslint']
+let g:syntastic_javascript_checkers=['jshint']
 
 """""""""""""""""""""""""""""""""""""""
 """"""""""" Custom stuff """"""""""""""
@@ -107,8 +108,9 @@ let mapleader = ","
 set noshowmode
 
 " Highlight lines over 80 chars
-highlight OverLength ctermbg=blue ctermfg=black guibg=#592929
-match OverLength /\%81v.\+/
+" highlight OverLength ctermbg=blue ctermfg=black guibg=#592929
+" match OverLength /\%81v.\+/
+set cc=81
 
 " Maybe I should highlight or something with tabs?
 " highlight Tab ctermbg=white ctermfg=black
