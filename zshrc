@@ -106,3 +106,4 @@ export PATH=$HOME/homebrew/bin:$PATH
 
 tmux attach -t base || tmux new -s base
 
+source $HOME/.paths
