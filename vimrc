@@ -11,6 +11,8 @@ Plugin 'VundleVim/Vundle.vim'
 " Personal plugins
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdtree-git-plugin'
+Plugin 'scrooloose/syntastic'
+Plugin 'othree/html5.vim'
 Plugin 'kristijanhusak/vim-hybrid-material'
 Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-fugitive'
@@ -18,6 +20,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'skammer/vim-css-color'
+Plugin 'Townk/vim-autoclose'
+Plugin 'alvan/vim-closetag'
 " End of personal plugins
 
 call vundle#end()     " required
@@ -80,6 +84,20 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") &&
 
 let NERDTreeShowHidden = 1
 
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_html_checkers=['jshint']
+let g:syntastic_css_checkers=['csslint']
+let g:syntastic_javascript_checkers=['jshint']
+
 """""""""""""""""""""""""""""""""""""""
 """"""""""" Custom stuff """"""""""""""
 """""""""""""""""""""""""""""""""""""""
@@ -90,8 +108,9 @@ let mapleader = ","
 set noshowmode
 
 " Highlight lines over 80 chars
-highlight OverLength ctermbg=blue ctermfg=black guibg=#592929
-match OverLength /\%81v.\+/
+" highlight OverLength ctermbg=blue ctermfg=black guibg=#592929
+" match OverLength /\%81v.\+/
+set cc=81
 
 " Maybe I should highlight or something with tabs?
 " highlight Tab ctermbg=white ctermfg=black
