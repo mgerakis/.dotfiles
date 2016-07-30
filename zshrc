@@ -104,5 +104,7 @@ export PATH=$HOME/bin:$PATH
 
 export PATH=$HOME/homebrew/bin:$PATH
 
+export PATH=/usr/local/texlive/2015/bin/x86_64-darwin:$PATH
+
 tmux attach -t base || tmux new -s base
 
