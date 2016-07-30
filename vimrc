@@ -22,6 +22,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'skammer/vim-css-color'
 Plugin 'Townk/vim-autoclose'
 Plugin 'alvan/vim-closetag'
+Plugin 'christoomey/vim-tmux-navigator'
 " End of personal plugins
 
 call vundle#end()     " required
@@ -133,10 +134,12 @@ nnoremap <leader>r :source $MYVIMRC<CR>
 nnoremap <leader>p :CtrlP<CR>
 
 " Make switching between panes interfere with tmux less
-nnoremap <C-h> <C-W><Left>
-nnoremap <C-j> <C-W><Down>
-nnoremap <C-k> <C-W><Up>
-nnoremap <C-l> <C-W><Right>
+if !exists("g:loaded_tmux_navigator")
+  nnoremap <C-h> <C-W><Left>
+  nnoremap <C-j> <C-W><Down>
+  nnoremap <C-k> <C-W><Up>
+  nnoremap <C-l> <C-W><Right>
+endif
 
 " Tabs are 2, no spaces. Makefile tabs automatically do 8
 autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
@@ -153,9 +156,26 @@ function! Zoom()
     execute "normal \<C-w>\_"
     let g:zoomed=1
   else
-    execute "normal \<C-w>\="
+    if exists("g:NERDTree")
+      if exists("b:NERDTree") && b:NERDTree.IsOpen()
+        execute "normal \<C-w>\l"
+        let g:zoomed=0
+        call Zoom()
+        call Zoom()
+      else
+        if g:NERDTree.IsOpen()
+          call g:NERDTreeFocus()
+          execute "normal \<C-w>\="
+          execute "vertical resize 32"
+          execute "normal \<C-w>\p"
+        endif
+      endif
+    else
+      execute "normal \<C-w>\="
+    endif
     let g:zoomed=0
   endif
 endfunction
 
 nnoremap <C-z> :call Zoom()<cr>
+
