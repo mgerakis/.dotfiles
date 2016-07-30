@@ -8,8 +8,9 @@ fi
 brew update
 brew upgrade
 
-brew install tree
 brew install vim --with-override-system-vi
+brew install tree
+brew install entr
 brew install git
 brew install node
 brew install zsh
