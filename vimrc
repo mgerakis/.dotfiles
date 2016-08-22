@@ -23,6 +23,7 @@ Plugin 'Townk/vim-autoclose'
 Plugin 'alvan/vim-closetag'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'chriskempson/vim-tomorrow-theme'
+Plugin 'leafgarland/typescript-vim'
 " End of personal plugins
 
 call vundle#end()     " required
