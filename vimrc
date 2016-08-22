@@ -11,7 +11,6 @@ Plugin 'VundleVim/Vundle.vim'
 " Personal plugins
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdtree-git-plugin'
-Plugin 'scrooloose/syntastic'
 Plugin 'othree/html5.vim'
 Plugin 'kristijanhusak/vim-hybrid-material'
 Plugin 'vim-airline/vim-airline'
@@ -23,6 +22,7 @@ Plugin 'skammer/vim-css-color'
 Plugin 'Townk/vim-autoclose'
 Plugin 'alvan/vim-closetag'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'chriskempson/vim-tomorrow-theme'
 " End of personal plugins
 
 call vundle#end()     " required
@@ -39,8 +39,9 @@ filetype plugin indent on " required
 " see :h vundle for more details or wiki for FAQ
 
 " Swap file stuff
-set swapfile
-set dir=/tmp
+set nobackup
+set nowb
+set noswapfile
 
 " Backspace works normally
 set backspace=indent,eol,start
@@ -62,15 +63,14 @@ set cursorline
 
 " Line and column numbers
 set ruler
-set nu
 set relativenumber
 
 " Status line
 set laststatus=2
 
 " Theme
+colorscheme Tomorrow-Night
 set background=dark
-colorscheme hybrid_material
 
 " Airline stuff
 let g:airline_powerline_fonts = 1
@@ -104,20 +104,6 @@ call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
 call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
 call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
 call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
-
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_html_checkers=['jshint']
-let g:syntastic_css_checkers=['csslint']
-let g:syntastic_javascript_checkers=['jshint']
 
 """""""""""""""""""""""""""""""""""""""
 """"""""""" Custom stuff """"""""""""""
@@ -153,6 +139,9 @@ nnoremap <leader>r :source $MYVIMRC<CR>
 " <leader>p: CtrlP
 nnoremap <leader>p :CtrlP<CR>
 
+" Remove hilight
+map <silent> <leader><cr> :noh<cr>
+
 " Make switching between panes interfere with tmux less
 if !exists("g:loaded_tmux_navigator")
   nnoremap <C-h> <C-W><Left>
@@ -170,32 +159,26 @@ set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 " For zooming into window
 let g:zoomed = 0
 
+set showmatch
+set so=7
+set hlsearch
+set incsearch
+
+let g:zoomed=0
 function! Zoom()
   if g:zoomed == 0
-    execute "normal \<C-w>\|"
-    execute "normal \<C-w>\_"
+    exe "normal \<C-w>\|"
+    exe "normal \<C-w>\_"
     let g:zoomed=1
   else
-    if exists("g:NERDTree")
-      if exists("b:NERDTree") && b:NERDTree.IsOpen()
-        execute "normal \<C-w>\l"
-        let g:zoomed=0
-        call Zoom()
-        call Zoom()
-      else
-        if g:NERDTree.IsOpen()
-          call g:NERDTreeFocus()
-          execute "normal \<C-w>\="
-          execute "vertical resize 32"
-          execute "normal \<C-w>\p"
-        endif
-      endif
-    else
-      execute "normal \<C-w>\="
-    endif
     let g:zoomed=0
+    if g:NERDTree.IsOpen()
+      :NERDTreeFocus
+      exe "vertical resize 32"
+      exe "normal \<C-w>\p"
+    endif
+    exe "normal \<C-w>\="
   endif
 endfunction
 
 nnoremap <C-z> :call Zoom()<cr>
-
