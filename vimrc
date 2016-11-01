@@ -12,7 +12,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdtree-git-plugin'
 Plugin 'othree/html5.vim'
-Plugin 'kristijanhusak/vim-hybrid-material'
 Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline-themes'
@@ -23,7 +22,6 @@ Plugin 'Townk/vim-autoclose'
 Plugin 'alvan/vim-closetag'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'chriskempson/vim-tomorrow-theme'
-Plugin 'leafgarland/typescript-vim'
 " End of personal plugins
 
 call vundle#end()     " required
@@ -70,7 +68,7 @@ set relativenumber
 set laststatus=2
 
 " Theme
-colorscheme Tomorrow-Night
+colorscheme flatui
 set background=dark
 
 " Airline stuff
@@ -102,6 +100,7 @@ call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
 call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
 call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
 call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('sass', 'cyan', 'none', 'cyan', '#151515')
 call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
 call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
 call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
@@ -124,12 +123,17 @@ set cc=81
 " highlight Tab ctermbg=white ctermfg=black
 " match Tab /\t/
 
-" Ctrl-D: Move to now line
+" Ctrl-D: Move to new line
 map <C-D> i<BS><CR><ESC>
 
 " Ctrl-X: Save file
 nnoremap <C-X> :w<CR>
 inoremap <C-X> <C-O>:w<CR>
+
+inoremap jk <C-c>:w<CR>
+
+" Skip to end of space bracket ( })
+inoremap <C-f> <ESC>f}a
 
 " <leader>n: Toggle NerdTree
 nnoremap <leader>n :NERDTreeToggle<CR>
