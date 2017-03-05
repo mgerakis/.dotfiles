@@ -97,13 +97,4 @@ alias gl="git log"
 alias gc="git commit"
 alias gco="git co"
 
-export NVM_DIR="${HOME}/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-export PATH=$HOME/bin:$PATH
-
-export PATH=$HOME/homebrew/bin:$PATH
-
-export PATH=/usr/local/texlive/2015/bin/x86_64-darwin:$PATH
-
 tmux attach -t base || tmux new -s base

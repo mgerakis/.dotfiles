@@ -11,15 +11,10 @@ Plugin 'VundleVim/Vundle.vim'
 " Personal plugins
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdtree-git-plugin'
-Plugin 'othree/html5.vim'
 Plugin 'vim-airline/vim-airline'
-Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'skammer/vim-css-color'
 Plugin 'Townk/vim-autoclose'
-Plugin 'alvan/vim-closetag'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'flazz/vim-colorschemes'
 " End of personal plugins
@@ -114,14 +109,8 @@ let mapleader = ","
 " Remove -- INSERT -- from below airline
 set noshowmode
 
-" Highlight lines over 80 chars
-" highlight OverLength ctermbg=blue ctermfg=black guibg=#592929
-" match OverLength /\%81v.\+/
+" Highlight 81 first line
 set cc=81
-
-" Maybe I should highlight or something with tabs?
-" highlight Tab ctermbg=white ctermfg=black
-" match Tab /\t/
 
 " Ctrl-D: Move to new line
 map <C-D> i<BS><CR><ESC>
@@ -132,17 +121,11 @@ inoremap <C-X> <C-O>:w<CR>
 
 inoremap jk <C-c>:w<CR>
 
-" Skip to end of space bracket ( })
-inoremap <C-f> <ESC>f}a
-
 " <leader>n: Toggle NerdTree
 nnoremap <leader>n :NERDTreeToggle<CR>
 
 " <leader>r: source vimrc
 nnoremap <leader>r :source $MYVIMRC<CR>
-
-" <leader>p: CtrlP
-nnoremap <leader>p :CtrlP<CR>
 
 " Remove hilight
 map <silent> <leader><cr> :noh<cr>
@@ -161,14 +144,12 @@ autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
 " Fix tabs to do 2 spaces
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 
-" For zooming into window
-let g:zoomed = 0
-
 set showmatch
 set so=7
 set hlsearch
 set incsearch
 
+" For zooming into window
 let g:zoomed=0
 function! Zoom()
   if g:zoomed == 0
@@ -187,3 +168,12 @@ function! Zoom()
 endfunction
 
 nnoremap <C-z> :call Zoom()<cr>
+
+" stop new-line comment crap
+set formatoptions-=r
+
+
+" Spell checking
+set spell spelllang=en_us
+" use [s and ]s to jump to misspelled words
+" use z= to have vim suggest alternatives
