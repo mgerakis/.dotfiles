@@ -6,6 +6,8 @@ FILES=(
   "tmux.conf"
   "vimrc"
   "zshrc"
+  "bashrc"
+  "aliases"
 )
 
 for file in "${FILES[@]}"

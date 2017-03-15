@@ -17,6 +17,8 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'Townk/vim-autoclose'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 " End of personal plugins
 
 call vundle#end()     " required
@@ -121,6 +123,8 @@ inoremap <C-X> <C-O>:w<CR>
 
 inoremap jk <C-c>:w<CR>
 
+" <leader>p: CtrlP
+nnoremap <leader>p :CtrlP<CR>
 " <leader>n: Toggle NerdTree
 nnoremap <leader>n :NERDTreeToggle<CR>
 
@@ -174,6 +178,7 @@ set formatoptions-=r
 
 
 " Spell checking
-set spell spelllang=en_us
+" autocmd FileType markdown setlocal spell spelllang=en_us
+" set spell spelllang=en_us
 " use [s and ]s to jump to misspelled words
 " use z= to have vim suggest alternatives

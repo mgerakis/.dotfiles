@@ -83,18 +83,12 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias ta="tmux a -t "
-alias tn="tmux new -s "
-alias tl="tmux ls"
-alias tk="tmux kill-session -t "
-alias v="vim "
-alias gs="git status"
-alias ga="git add"
-alias gp="git push"
-alias gf="git fetch"
-alias gm="git merge"
-alias gl="git log"
-alias gc="git commit"
-alias gco="git co"
+if [ -f ~/.aliases ]; then
+  source ~/.aliases
+fi
+
+if [ -f ~/.zsh_extras ]; then
+  source ~/.zsh_extras
+fi
 
 tmux attach -t base || tmux new -s base
