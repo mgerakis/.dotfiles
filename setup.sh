@@ -37,7 +37,7 @@ fi
 source $BASEDIR/fonts.sh
 
 # Make sure Vundle.vim is installed for vim.
-if ! [ ! -d ~/.vim/bundle/Vundle.vim ]; then
+if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
   vim -c ":PluginInstall" -c ":qa"
   cd ~/.vim/bundle/vimproc.vim/ && make
