@@ -25,6 +25,7 @@ if [[ `uname` == 'Darwin' ]]; then
   brew install tree
   brew install entr
   brew install tmux
+  brew install cmake
 
   brew cleanup
 else
@@ -39,4 +40,9 @@ source $BASEDIR/fonts.sh
 # Make sure Vundle.vim is installed for vim.
 if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+fi
+
+# Make sure TPM is installed for tmux.
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
