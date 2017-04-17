@@ -36,7 +36,7 @@ bind 'TAB:menu-complete'
 . ~/.dotfiles/z/z.sh
 
 export GIT_PS1_SHOWDIRTYSTATE=1
-export PROMPT_DIRTRIM=1 # only show last 2 directories
+export PROMPT_DIRTRIM=1 # only show last 1 directories
 
 PS1='\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " git:\[\033[01;32m\]%s") \[\033[00m\]\$ '
 

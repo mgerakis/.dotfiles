@@ -17,6 +17,8 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'Townk/vim-autoclose'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'shougo/vimproc.vim'
+Plugin 'quramy/tsuquyomi'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 " End of personal plugins
@@ -68,6 +70,9 @@ set laststatus=2
 colorscheme flatui
 set background=dark
 
+" Better Highlighting for Search
+hi Search cterm=NONE ctermbg=white ctermfg=black
+
 " Airline stuff
 let g:airline_powerline_fonts = 1
 let g:airline_theme='bubblegum'
@@ -117,11 +122,9 @@ set cc=81
 " Ctrl-D: Move to new line
 map <C-D> i<BS><CR><ESC>
 
-" Ctrl-X: Save file
-nnoremap <C-X> :w<CR>
-inoremap <C-X> <C-O>:w<CR>
-
 inoremap jk <C-c>:w<CR>
+
+nnoremap <leader>w :w<CR>
 
 " <leader>p: CtrlP
 nnoremap <leader>p :CtrlP<CR>
@@ -182,3 +185,7 @@ set formatoptions-=r
 " set spell spelllang=en_us
 " use [s and ]s to jump to misspelled words
 " use z= to have vim suggest alternatives
+"
+
+let g:tsuquyomi_use_dev_node_module = 2
+nnoremap <silent> <leader>h :echo tsuquyomi#hint()<CR>

@@ -83,6 +83,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+. ~/.dotfiles/z/z.sh
+
 if [ -f ~/.aliases ]; then
   source ~/.aliases
 fi
@@ -92,3 +94,6 @@ if [ -f ~/.zsh_extras ]; then
 fi
 
 tmux attach -t base || tmux new -s base
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
