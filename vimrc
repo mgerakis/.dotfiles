@@ -17,6 +17,8 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'Townk/vim-autoclose'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'shougo/vimproc.vim'
+Plugin 'quramy/tsuquyomi'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 " End of personal plugins
