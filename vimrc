@@ -21,6 +21,7 @@ Plugin 'shougo/vimproc.vim'
 Plugin 'quramy/tsuquyomi'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'vim-syntastic/syntastic'
 " End of personal plugins
 
 call vundle#end()     " required
@@ -189,3 +190,14 @@ set formatoptions-=r
 
 let g:tsuquyomi_use_dev_node_module = 2
 nnoremap <silent> <leader>h :echo tsuquyomi#hint()<CR>
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
