@@ -15,6 +15,8 @@ fi
 # Brew stuff
 # only for MacOs
 if [[ `uname` == 'Darwin' ]]; then
+  xcode-select --install
+
   if ! [ -e "$(which brew)" ]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
@@ -25,9 +27,13 @@ if [[ `uname` == 'Darwin' ]]; then
   brew install tree
   brew install entr
   brew install tmux
-  brew install cmake
+  brew install clang-format # For text editing support
+  brew install python3
 
   brew cleanup
+
+  # Install pip for python 2
+  sudo easy_install pip
 else
   sudo apt-get install tree
   sudo apt-get install entr

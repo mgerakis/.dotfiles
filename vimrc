@@ -22,6 +22,11 @@ Plugin 'quramy/tsuquyomi'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'rhysd/vim-clang-format'
+Plugin 'tpope/vim-surround'
+Plugin 'alvan/vim-closetag'
+" Viewing image previews in vim
+Plugin 'ashisha/image.vim'
 " End of personal plugins
 
 call vundle#end()     " required
@@ -45,6 +50,7 @@ set noswapfile
 " Backspace works normally
 set backspace=indent,eol,start
 
+set eol
 " Set colors for linux terminal
 set t_Co=256
 
@@ -146,6 +152,9 @@ if !exists("g:loaded_tmux_navigator")
   nnoremap <C-l> <C-W><Right>
 endif
 
+nnoremap <leader>f :ClangFormat<CR>
+autocmd FileType typescript ClangFormatAutoEnable
+
 " Tabs are 2, no spaces. Makefile tabs automatically do 8
 autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
 
@@ -188,6 +197,9 @@ set formatoptions-=r
 " use z= to have vim suggest alternatives
 "
 
+let g:tsuquyomi_completion_detail = 1
+autocmd FileType typescript setlocal completeopt+=menu,preview
+
 let g:tsuquyomi_use_dev_node_module = 2
 nnoremap <silent> <leader>h :echo tsuquyomi#hint()<CR>
 
@@ -201,3 +213,6 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
+let g:syntastic_html_checkers = ['']
+
+set autoread
