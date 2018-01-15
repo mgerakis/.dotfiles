@@ -5,3 +5,5 @@
 	default = matching
 [core]
 	editor = vim
+	autocrlf = false
+	filemode = false
