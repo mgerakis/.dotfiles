@@ -40,10 +40,12 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'quramy/tsuquyomi'
 " File fuzzy finding
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'rhysd/vim-clang-format'
 " Surround words with stuff
 Plugin 'tpope/vim-surround'
-" Syntastic style checking
-" Plugin 'vim-syntastic/syntastic'
+" Viewing image previews in vim
+Plugin 'ashisha/image.vim'
 " Syntax highlighting for scss
 Plugin 'cakebaker/scss-syntax.vim'
 " End of personal plugins
@@ -60,6 +62,7 @@ set noswapfile
 " Backspace works normally
 set backspace=indent,eol,start
 
+set eol
 " Set colors for linux terminal
 set t_Co=256
 
@@ -160,6 +163,9 @@ if !exists("g:loaded_tmux_navigator")
   nnoremap <C-l> <C-W><Right>
 endif
 
+nnoremap <leader>f :ClangFormat<CR>
+autocmd FileType typescript ClangFormatAutoEnable
+
 " Tabs are 2, no spaces. Makefile tabs automatically do 8
 autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
 
@@ -199,6 +205,9 @@ nnoremap <leader>y "+y
 " Paste from system clipboard
 nnoremap <leader>p "+p
 
+let g:tsuquyomi_completion_detail = 1
+autocmd FileType typescript setlocal completeopt+=menu,preview
+
 let g:tsuquyomi_use_dev_node_module = 2
 
 nnoremap <silent> <leader>h :echo tsuquyomi#hint()<CR>
@@ -207,18 +216,15 @@ let g:closetag_filenames = "*.html"
 
 set foldmethod=syntax
 
-" Recommended settings
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
+let g:syntastic_html_checkers = ['']
 
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-
-" let g:syntastic_typescript_checkers = ['tsuquyomi']
-" let g:syntastic_html_checkers = []
+set autoread
 
 if !empty(glob("~/.vim_extras"))
   source ~/.vim_extras

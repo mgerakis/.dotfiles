@@ -38,4 +38,8 @@ export PROMPT_DIRTRIM=1 # only show last 1 directories
 
 PS1='\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " git:\[\033[01;32m\]%s") \[\033[00m\]\$ '
 
+export PATH="$HOME/.cargo/bin:$PATH"
+
+pokemon charmander
 tmux attach -t base || tmux new -s base
+
