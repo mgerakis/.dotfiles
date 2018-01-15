@@ -30,8 +30,6 @@ force_color_prompt=yes
 
 bind 'TAB:menu-complete'
 
-. ~/.dotfiles/git-completion.bash
-. ~/.dotfiles/tmux.completion.bash
 . ~/.dotfiles/git-prompt.sh
 . ~/.dotfiles/z/z.sh
 

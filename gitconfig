@@ -3,7 +3,5 @@
 	email = mgerakis@bu.com
 [push]
 	default = matching
-[alias]
-	co = checkout
 [core]
 	editor = vim

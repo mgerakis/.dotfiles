@@ -49,8 +49,3 @@ if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
   vim -c ":PluginInstall" -c ":qa"
   cd ~/.vim/bundle/vimproc.vim/ && make
 fi
-
-# Make sure TPM is installed for tmux.
-if [ ! -d ~/.tmux/plugins/tpm ]; then
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-fi

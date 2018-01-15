@@ -5,32 +5,7 @@ filetype off        " required for Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
 
-" Personal plugins
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdtree-git-plugin'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'Townk/vim-autoclose'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'shougo/vimproc.vim'
-Plugin 'quramy/tsuquyomi'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'rhysd/vim-clang-format'
-Plugin 'tpope/vim-surround'
-Plugin 'alvan/vim-closetag'
-" Viewing image previews in vim
-Plugin 'ashisha/image.vim'
-" End of personal plugins
-
-call vundle#end()     " required
-filetype plugin indent on " required
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -41,6 +16,43 @@ filetype plugin indent on " required
 "                       auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
+Plugin 'VundleVim/Vundle.vim'
+
+" Personal plugins
+" File tree
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree-git-plugin'
+" Bottom bar
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+" Git change notificiations in gutter
+Plugin 'airblade/vim-gitgutter'
+" Close (, {, etc
+Plugin 'Townk/vim-autoclose'
+" Close html tags
+Plugin 'alvan/vim-closetag'
+" For vim / tmux pane movement integration
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'flazz/vim-colorschemes'
+" Typescript tings
+Plugin 'shougo/vimproc.vim'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'quramy/tsuquyomi'
+" File fuzzy finding
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'rhysd/vim-clang-format'
+" Surround words with stuff
+Plugin 'tpope/vim-surround'
+" Viewing image previews in vim
+Plugin 'ashisha/image.vim'
+" Syntax highlighting for scss
+Plugin 'cakebaker/scss-syntax.vim'
+" End of personal plugins
+
+call vundle#end()     " required
+
+filetype plugin indent on " required
 
 " Swap file stuff
 set nobackup
@@ -74,7 +86,7 @@ set relativenumber
 set laststatus=2
 
 " Theme
-colorscheme flatui
+colorscheme Tomorrow-Night-Eighties
 set background=dark
 
 " Better Highlighting for Search
@@ -129,16 +141,15 @@ set cc=81
 " Ctrl-D: Move to new line
 map <C-D> i<BS><CR><ESC>
 
-inoremap jk <C-c>:w<CR>
+" Saving requires NERDTree to be closed due to bug with nerdtree-git-plugin and
+" syntastic
+inoremap jk <C-c>:NERDTreeClose<CR><bar>:w<CR>
 
-nnoremap <leader>w :w<CR>
+nnoremap <leader>w :NERDTreeClose<CR><bar>:w<CR>
 
-" <leader>p: CtrlP
-nnoremap <leader>p :CtrlP<CR>
-" <leader>n: Toggle NerdTree
+nnoremap <leader>f :CtrlP ./<CR>
 nnoremap <leader>n :NERDTreeToggle<CR>
 
-" <leader>r: source vimrc
 nnoremap <leader>r :source $MYVIMRC<CR>
 
 " Remove hilight
@@ -189,23 +200,21 @@ nnoremap <C-z> :call Zoom()<cr>
 " stop new-line comment crap
 set formatoptions-=r
 
-
-" Spell checking
-" autocmd FileType markdown setlocal spell spelllang=en_us
-" set spell spelllang=en_us
-" use [s and ]s to jump to misspelled words
-" use z= to have vim suggest alternatives
-"
+" Copy to system clipboard
+nnoremap <leader>y "+y
+" Paste from system clipboard
+nnoremap <leader>p "+p
 
 let g:tsuquyomi_completion_detail = 1
 autocmd FileType typescript setlocal completeopt+=menu,preview
 
 let g:tsuquyomi_use_dev_node_module = 2
+
 nnoremap <silent> <leader>h :echo tsuquyomi#hint()<CR>
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+let g:closetag_filenames = "*.html"
+
+set foldmethod=syntax
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -216,3 +225,7 @@ let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
 let g:syntastic_html_checkers = ['']
 
 set autoread
+
+if !empty(glob("~/.vim_extras"))
+  source ~/.vim_extras
+endif
